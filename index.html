@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Awareness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light grey background */
+            color: #333; /* Dark grey text */
+        }
+
+        header {
+            background-color: #000; /* Black background */
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            font-family: 'Times New Roman', serif; /* Times New Roman for headings */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ff0000; /* Red background */
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #000; /* Black on hover */
+        }
+
+        section {
+            padding: 50px;
+            text-align: center;
+            display: none; /* All sections hidden by default */
+        }
+
+        section.active {
+            display: block; /* Active section visible */
+        }
+
+        #home img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #about-us, #mission, #status, #contact, #donations, #volunteers {
+            background-color: #fff; /* White background for sections */
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #000; /* Black background */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-family: 'Times New Roman', serif; /* Times New Roman for footer */
+        }
+
+        footer a {
+            color: #ff0000; /* Red color for links */
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Project Awareness</h1>
+</header>
+
+<nav>
+    <a href="javascript:void(0)" onclick="showSection('home')">Home</a>
+    <a href="javascript:void(0)" onclick="showSection('about-us')">About Us</a>
+    <a href="javascript:void(0)" onclick="showSection('mission')">Mission</a>
+    <a href="javascript:void(0)" onclick="showSection('tracking')">Status</a>
+    <a href="javascript:void(0)" onclick="showSection('contact')">Contact Us</a>
+</nav>
+
+<section id="home" class="active">
+    <h2>"One Step at a Time: Uniting Tech and Compassion to Eradicate Poverty in Our City"</h2>
+    <img src="public/img/project-awareness.jpg" alt="Project Awareness Image"/>
+</section>
+
+<section id="about-us">
+    <h2>About Us</h2>
+    <p>We started as a team of four, with the base idea of the project given by Uzair. The focus was to figure out solutions for existing problems rather than starting a new one every time we had a group presentation. Our theme is from our last SIP project on how to empower awareness in areas affected by poverty in Hyderabad. The aim is to track real-time data using technology and programming to create a solution-focused website.</p>
+    <p><strong>Divakshi</strong> is responsible for the technical development of the website.<br>
+    <strong>Disha</strong> manages the database system.<br>
+    <strong>Juveria</strong> conducts research on the poverty issues we address.</p>
+</section>
+
+<section id="mission">
+    <h2>Mission</h2>
+    <p>This website promotes real-time tracking of areas in Hyderabad affected by poverty. Our databases will help identify which areas lack resources and determine the approximate quantities required. By leveraging this data, we can direct resources efficiently.</p>
+    <p id="mission-content"></p>
+    <img src="public/img/mission.png" alt="Mission Image"/>
+</section>
+
+<section id="tracking">
+    <h2>Status</h2>
+    <p id="tracking-message">We are working on this part of the website.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>@shaik.uzair_2027@woxsen.edu.in<br>
+       @divakshi.kumar_2027@woxsen.edu.in<br>
+       @disha.agarwal_2027@woxsen.edu.in<br>
+       @juveria.tallam_2027@woxsen.edu.in</p>
+</section>
+
+<section id="donations">
+    <h2>Donate</h2>
+    <p>Your contributions help us drive real change. Every small step counts in the fight against poverty in Hyderabad.</p>
+
+    <h3>Donation Options</h3>
+    <p>Select how you'd like to contribute:</p>
+    <ul>
+        <li><strong>Financial Donations:</strong> Make a one-time or recurring donation directly through our payment gateway.</li>
+        <li><strong>Resource Donations:</strong> Donate food, clothing, or essential items directly to the affected areas.</li>
+        <li><strong>Volunteering:</strong> Your time is a valuable donation! Volunteer to help us in our mission.</li>
+    </ul>
+    <form action="/send-donation" method="POST">
+        <label for="donation-amount">Amount:</label>
+        <input type="number" id="donation-amount" name="amount" placeholder="Enter donation amount" required>
+        <br><br>
+        <label for="donation-method">Donation Method:</label>
+        <select id="donation-method" name="method">
+            <option value="one-time">One-time Donation</option>
+            <option value="recurring">Recurring Donation</option>
+        </select>
+        <br><br>
+        <button type="submit">Donate Now</button>
+    </form>
+</section>
+
+<section id="volunteers">
+    <h2>Become a Volunteer</h2>
+    <p>Your time and efforts can make a significant difference. Volunteering is a rewarding way to give back to the community. Join our team and make an impact today.</p>
+
+    <h3>Volunteer Opportunities</h3>
+    <p>We offer various volunteer opportunities to suit your skills and availability:</p>
+    <ul>
+        <li><strong>Field Workers:</strong> Assist in the distribution of resources to underprivileged communities.</li>
+        <li><strong>Fundraisers:</strong> Help us raise awareness and funds for our ongoing campaigns.</li>
+        <li><strong>Community Educators:</strong> Teach and mentor children in the communities we serve.</li>
+    </ul>
+    <form action="/send-contact" method="POST">
+        <label for="volunteer-name">Full Name:</label>
+        <input type="text" id="volunteer-name" name="name" required>
+        <br><br>
+        <label for="volunteer-email">Email:</label>
+        <input type="email" id="volunteer-email" name="email" required>
+        <br><br>
+        <label for="volunteer-experience">Why do you want to volunteer?</label>
+        <textarea id="volunteer-experience" name="experience" rows="4" required></textarea>
+        <br><br>
+        <button type="submit">Join Us</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 Project Awareness. All rights reserved.</p>
+</footer>
+
+<script>
+    function showSection(id) {
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.remove('active');
+        });
+        document.getElementById(id).classList.add('active');
+    }
+
+    // Fetch and display mission content on the front-end
+    fetch('/api/content/Mission')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('mission-content').innerText = data.content;
+        });
+
+    // Handle tracking status display on the front-end
+    fetch('/api/tracking-status')
+        .then(response => response.json())
+        .then(data => {
+            const trackingMessage = document.getElementById('tracking-message');
+            trackingMessage.innerHTML = data.map(d => `<p>${d.area}: ${d.needs}</p>`).join('');
+        });
+</script>
+
+</body>
+</html>
